@@ -5,7 +5,7 @@
 //  1/5 +1/20 = 1/4
 //  1/6 +1/12 = 1/4
 //  1/8 + 1/8 = 1/4
-// What is the least value of n for which the number of distinct solutions exceeds one-thousand?
+// What is the least value of n for which the number of distinct solutions exceeds one-thousand (in general, exceeds d)?
  
  
 
@@ -52,3 +52,23 @@ const pairwiseFactorisations = (n) => {
 
 // console.log(pairwiseFactorisations(1260**2));
 
+
+
+const Problem108 = (d) => {
+    // solutions (x,y) to 1/x + 1/y = 1/n for given n equivalent to finding numbers a,b 
+    // such that a*b = n**2;
+
+    let finished = false;
+    let iterate = 2;
+    while (!finished){
+        if (pairwiseFactorisations(iterate**2) > d){
+            finished = true;
+        }
+        else{
+            iterate ++;
+        }
+    }
+    return iterate;
+}
+
+console.log(Problem108(1000));

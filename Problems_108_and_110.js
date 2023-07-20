@@ -50,7 +50,7 @@ const pairwiseFactorisations = (n) => {
     return count;
 }
 
-// console.log(pairwiseFactorisations(1260**2));
+// console.log(pairwiseFactorisations(24**2));
 
 
 
@@ -71,4 +71,21 @@ const Problem108 = (d) => {
     return iterate;
 }
 
-console.log(Problem108(1000));
+// console.log(Problem108(1000));
+
+
+
+const isPrime = (n) => {
+    if (n===2 || n===3){
+        return true;
+    }
+    if (n<=1 || n%2===0 || n%3===0){
+        return false;
+    }
+    for (i===5; i<= n**0.5; i+=6){
+        if (n%i===0 || n%(i+2)===0){
+            return false;
+        }
+    }
+    return true;
+}

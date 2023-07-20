@@ -89,3 +89,37 @@ const isPrime = (n) => {
     }
     return true;
 }
+
+// return list of prime numbers upto n
+const primeList = (n) =>{
+    if (n<=1){
+        return [];
+    }
+    let primes = [2];
+    for (i=3; i<= n; i+=2){
+        if (isPrime(i)){
+            primes.push(i);
+        }
+    }
+    return primes;
+}
+
+// console.log(primeList(100));
+
+
+// returns biggest number m<=n such that m = 2*3*5*7*11*...*p_n
+const biggestCompositeNumber = (n) =>{
+    const primes = primeList(Math.round(n**0.5));
+    // console.log(primes);
+    let output = 1;
+    let index = 0;
+    while (output*primes[index] <= n){
+        output *= primes[index];
+        index ++;
+    }
+    return [output,primes[index-1]];
+}
+
+// console.log(biggestCompositeNumber(1000000));
+
+console.log(2*3*5*7*11*13*17);
